@@ -40,5 +40,5 @@ Recipes are downloaded from the source provided by the customer.
 
 ## Credits
 
-* Created and designed by [**@gussent**](https://github.com/gussent).
+* Created and designed by [**@gussent**](https://github.com/gussent), 2018.
 
