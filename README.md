@@ -8,7 +8,7 @@ Two screens test project with JSON download and parsing, images download and cac
 
 ## App goal
 
-The application was created to demonstrate the level of knowledge and experience of developing ios applications to the request of one potential customer.
+The application was created to demonstrate the level of knowledge and experience of developing ios applications to the request of potential customer.
 
 The technical task consisted of two screens (view controllers).
 
