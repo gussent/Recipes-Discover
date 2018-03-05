@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RDRecipesListVC" customModule="RecipesDiscover" customModuleProvider="target">
+            <connections>
+                <outlet property="searchBar" destination="7dX-cF-2zi" id="8U2-qH-8pf"/>
+                <outlet property="sortingContainer" destination="5QM-SE-hTj" id="JpM-Iu-ZCh"/>
+                <outlet property="sortingControl" destination="ecE-vY-bi0" id="Xxa-Yi-pk2"/>
+                <outlet property="sortingLabel" destination="17v-Zf-H9N" id="a9k-kP-qey"/>
+                <outlet property="tableHeaderControls" destination="luU-o4-iec" id="lcs-tD-Dzu"/>
+                <outlet property="tableView" destination="Sdh-lR-fXA" id="EGk-xS-5eH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGc-4G-w8H" userLabel="rootView">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-lR-fXA" customClass="RDRecipesTableView" customModule="RecipesDiscover" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="108" width="375" height="539"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </tableView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="luU-o4-iec" userLabel="tableHeaderControls">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dX-cF-2zi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                </searchBar>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QM-SE-hTj" userLabel="sortingContainer">
+                                    <rect key="frame" x="0.0" y="56" width="375" height="52"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort recipes by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17v-Zf-H9N" userLabel="sortingLabel">
+                                            <rect key="frame" x="16" y="15" width="116" height="21"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ecE-vY-bi0" customClass="RDSegmentedControl" customModule="RecipesDiscover" customModuleProvider="target">
+                                            <rect key="frame" x="258" y="12" width="101" height="29"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <segments>
+                                                <segment title="Name"/>
+                                                <segment title="Date"/>
+                                            </segments>
+                                            <color key="tintColor" white="0.3095703125" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="onSortingChanged:" destination="-1" eventType="valueChanged" id="zfM-WK-CcA"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="17v-Zf-H9N" firstAttribute="leading" secondItem="5QM-SE-hTj" secondAttribute="leading" constant="16" id="C1o-b7-0TH"/>
+                                        <constraint firstItem="17v-Zf-H9N" firstAttribute="centerY" secondItem="5QM-SE-hTj" secondAttribute="centerY" id="cMr-wh-aGs"/>
+                                        <constraint firstAttribute="trailing" secondItem="ecE-vY-bi0" secondAttribute="trailing" constant="16" id="i5E-1r-npR"/>
+                                        <constraint firstItem="ecE-vY-bi0" firstAttribute="centerY" secondItem="5QM-SE-hTj" secondAttribute="centerY" id="kve-d1-O1O"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="108" id="4wV-9u-JFJ"/>
+                                <constraint firstAttribute="bottom" secondItem="5QM-SE-hTj" secondAttribute="bottom" id="Kp6-3t-jDZ"/>
+                                <constraint firstItem="7dX-cF-2zi" firstAttribute="top" secondItem="luU-o4-iec" secondAttribute="top" id="MQq-EN-LYT"/>
+                                <constraint firstItem="7dX-cF-2zi" firstAttribute="leading" secondItem="luU-o4-iec" secondAttribute="leading" id="Mfb-Jq-pJa"/>
+                                <constraint firstAttribute="trailing" secondItem="7dX-cF-2zi" secondAttribute="trailing" id="TzW-J7-86g"/>
+                                <constraint firstAttribute="trailing" secondItem="5QM-SE-hTj" secondAttribute="trailing" id="Vcf-DE-qSF"/>
+                                <constraint firstItem="5QM-SE-hTj" firstAttribute="leading" secondItem="luU-o4-iec" secondAttribute="leading" id="fZm-MA-Sja"/>
+                                <constraint firstItem="5QM-SE-hTj" firstAttribute="top" secondItem="7dX-cF-2zi" secondAttribute="bottom" id="urM-Ea-aIg"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Sdh-lR-fXA" firstAttribute="leading" secondItem="zGc-4G-w8H" secondAttribute="leading" id="6r3-4i-pSI"/>
+                        <constraint firstAttribute="trailing" secondItem="Sdh-lR-fXA" secondAttribute="trailing" id="HaF-ie-ISf"/>
+                        <constraint firstItem="luU-o4-iec" firstAttribute="leading" secondItem="zGc-4G-w8H" secondAttribute="leading" id="L8M-jt-DPY"/>
+                        <constraint firstAttribute="trailing" secondItem="luU-o4-iec" secondAttribute="trailing" id="lUg-GE-oeL"/>
+                        <constraint firstItem="Sdh-lR-fXA" firstAttribute="top" secondItem="luU-o4-iec" secondAttribute="bottom" id="syB-OZ-pJl"/>
+                        <constraint firstAttribute="bottom" secondItem="Sdh-lR-fXA" secondAttribute="bottom" id="vH5-0S-89G"/>
+                        <constraint firstItem="luU-o4-iec" firstAttribute="top" secondItem="zGc-4G-w8H" secondAttribute="top" id="z5q-iZ-vIq"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="zGc-4G-w8H" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SyS-RS-T89"/>
+                <constraint firstItem="zGc-4G-w8H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VT6-hO-iNK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zGc-4G-w8H" secondAttribute="bottom" id="sRr-cm-K3b"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zGc-4G-w8H" secondAttribute="trailing" id="tV0-HG-vlp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
+        </view>
+    </objects>
+</document>
