@@ -13,7 +13,7 @@ class RDRecipesLoader
 {
     class func loadRecipes(_ completionHandler: @escaping ()->())
     {
-        guard let url = URL(string: "http://cdn.sibedge.com/temp/recipes.json") else {return}
+        guard let url = URL(string: "https://raw.githubusercontent.com/gussent/Recipes-Discover/master/recipes-data.json") else {return}
         
         URLSession.shared.dataTask(with: url, completionHandler:
         { (data, response, error) -> Void in
@@ -74,36 +74,4 @@ class RDRecipesLoader
         
         realm.add(recipe)
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
