@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+// For future hypohetical cases
 protocol RDRecipesFetching: class
 {
     var count: Int {get}

@@ -10,7 +10,6 @@ import UIKit
 
 class RDRootVC: UINavigationController
 {
-
     override func viewDidLoad()
     {
         super.viewDidLoad()

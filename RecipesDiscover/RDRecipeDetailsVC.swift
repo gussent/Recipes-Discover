@@ -1,5 +1,5 @@
 //
-//  RDRecipeDetails.swift
+//  RDRecipeDetailsVC.swift
 //  RecipesDiscover
 //
 //  Created by Dmitry Kovalev on 03/03/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RDRecipeDetails: UIViewController
+class RDRecipeDetailsVC: UIViewController
 {
     var recipe: RDRecipe?
     var imagesPaginationVC: RDImagesPaginationVC!

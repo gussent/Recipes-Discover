@@ -8,19 +8,33 @@
 
 import UIKit
 
-class RDRecipesTableDS: NSObject, UITableViewDataSource, UISearchBarDelegate
+class RDRecipesTableDS: NSObject, UITableViewDataSource
 {
     weak var recipesTableView: RDRecipesTableView!
     weak var controller: RDRecipesListVC!
     
     var recipesFetcher: RDRecipesFetching!
-    var searchText: String = ""
+    
+    private var searchText: String = ""
+    private var sorting: RecipesSorting = .name(true)
     
     // MARK: - Public methods
     
+    func setSearchText(_ searchText: String)
+    {
+        self.searchText = searchText
+        reloadData()
+    }
+    
+    func setSort(by sorting: RecipesSorting)
+    {
+        self.sorting = sorting
+        reloadData()
+    }
+    
     func reloadData()
     {
-        recipesFetcher.performFetch(searchString: searchText, sorting: controller.getCurrentSorting())
+        recipesFetcher.performFetch(searchString: searchText, sorting: sorting)
         {
             recipesTableView.reloadData()
             
@@ -55,40 +69,6 @@ class RDRecipesTableDS: NSObject, UITableViewDataSource, UISearchBarDelegate
         return recipesFetcher.recipe(atIndex: indexPath.row)
     }
     
-    // MARK: - UISearchBarDelegate
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
-    {
-        recipesTableView.setContentOffset(CGPoint(x: 0, y: -8), animated: true)
-        self.searchText = searchText
-        reloadData()
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
-    {
-        searchBar.showsCancelButton = true
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
-    {
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-        searchBar.showsCancelButton = false
-        searchText = ""
-        reloadData()
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
-    {
-        reloadData()
-    }
-    
-    // MARK: - Sorting handlers
-    
-    func setSort(by sorting: RecipesSorting)
-    {
-        reloadData()
-    }
     
     // MARK: - Initialization
     

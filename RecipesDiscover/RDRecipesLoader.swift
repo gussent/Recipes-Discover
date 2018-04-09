@@ -18,7 +18,10 @@ class RDRecipesLoader
         URLSession.shared.dataTask(with: url, completionHandler:
         { (data, response, error) -> Void in
             
-            if let jsonRaw = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments),
+            // No error handling, in real life it should be processed
+            
+            if (data != nil && error == nil),
+               let jsonRaw = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments),
                let json = jsonRaw as? Dictionary<String, Any>,
                let recipes = json["recipes"] as? [Dictionary<String, Any>],
                let realm = try? Realm()

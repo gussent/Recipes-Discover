@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Recipies tableView presenter (delegate)
+
 class RDRecipesTablePR: NSObject, UITableViewDelegate
 {
     weak private var tableView: RDRecipesTableView!
@@ -19,19 +21,19 @@ class RDRecipesTablePR: NSObject, UITableViewDelegate
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
         guard
-            let custom_cell = cell as? RDRecipesListCell,
+            let customCell = cell as? RDRecipesListCell,
             let recipe = datasource.tableView(tableView, recipeForRowAt: indexPath)
         else
             {return}
         
-        custom_cell.configureWith(recipe)
+        customCell.configureWith(recipe)
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
-        guard let custom_cell = cell as? RDRecipesListCell else {return}
+        guard let customCell = cell as? RDRecipesListCell else {return}
         
-        custom_cell.invalidate()
+        customCell.invalidate()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

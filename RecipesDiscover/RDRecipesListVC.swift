@@ -14,7 +14,7 @@ enum RecipesSorting
     case date (Bool)
 }
 
-class RDRecipesListVC: UIViewController
+class RDRecipesListVC: UIViewController, UISearchBarDelegate
 {
     // MARK: - Outlets
     
@@ -31,6 +31,7 @@ class RDRecipesListVC: UIViewController
     private var datasource: RDRecipesTableDS!
     
     private var sorting: RecipesSorting! {didSet {onSortingChanged()}}
+    private var searchText: String = ""
     
     // MARK: - Public Api
     
@@ -49,7 +50,7 @@ class RDRecipesListVC: UIViewController
         
         datasource = RDRecipesTableDS(tableView: tableView, controller: self)
         presenter = RDRecipesTablePR(tableView: tableView, datasource: datasource, controller: self)
-        searchBar.delegate = datasource
+        searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -112,6 +113,34 @@ class RDRecipesListVC: UIViewController
         }
     }
     
+    // MARK: - UISearchBarDelegate
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
+    {
+        tableView.setContentOffset(CGPoint(x: 0, y: -8), animated: true)
+        self.searchText = searchText
+        datasource.setSearchText(searchText)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
+    {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
+    {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+        searchText = ""
+        datasource.setSearchText(searchText)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
+    {
+        datasource.reloadData()
+    }
+    
     // MARK: - Private methods
 
     func showRecipeDetails()
@@ -122,7 +151,7 @@ class RDRecipesListVC: UIViewController
         else
             {return}
         
-        let recipeDetailsVC = RDRecipeDetails()
+        let recipeDetailsVC = RDRecipeDetailsVC()
         recipeDetailsVC.recipe = recipe
         navigationController?.pushViewController(recipeDetailsVC, animated: true)
     }

@@ -20,7 +20,7 @@
 		5BE858CE204A8E890059C20C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE858CD204A8E890059C20C /* AppDelegate.swift */; };
 		5BE858D5204A8E890059C20C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BE858D4204A8E890059C20C /* Assets.xcassets */; };
 		5BE858D8204A8E890059C20C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE858D6204A8E890059C20C /* LaunchScreen.storyboard */; };
-		5BE858E9204A92E40059C20C /* RDRecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE858E7204A92E40059C20C /* RDRecipeDetails.swift */; };
+		5BE858E9204A92E40059C20C /* RDRecipeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE858E7204A92E40059C20C /* RDRecipeDetailsVC.swift */; };
 		5BE858EA204A92E40059C20C /* RDRecipeDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE858E8204A92E40059C20C /* RDRecipeDetails.xib */; };
 		5BE858ED204A93040059C20C /* RDRecipesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE858EB204A93040059C20C /* RDRecipesListVC.swift */; };
 		5BE858EE204A93040059C20C /* RDRecipesListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE858EC204A93040059C20C /* RDRecipesListVC.xib */; };
@@ -50,7 +50,7 @@
 		5BE858D4204A8E890059C20C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BE858D7204A8E890059C20C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BE858D9204A8E890059C20C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BE858E7204A92E40059C20C /* RDRecipeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDRecipeDetails.swift; sourceTree = "<group>"; };
+		5BE858E7204A92E40059C20C /* RDRecipeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDRecipeDetailsVC.swift; sourceTree = "<group>"; };
 		5BE858E8204A92E40059C20C /* RDRecipeDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RDRecipeDetails.xib; sourceTree = "<group>"; };
 		5BE858EB204A93040059C20C /* RDRecipesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDRecipesListVC.swift; sourceTree = "<group>"; };
 		5BE858EC204A93040059C20C /* RDRecipesListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RDRecipesListVC.xib; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		5BE858E6204A90A70059C20C /* recipe details */ = {
 			isa = PBXGroup;
 			children = (
-				5BE858E7204A92E40059C20C /* RDRecipeDetails.swift */,
+				5BE858E7204A92E40059C20C /* RDRecipeDetailsVC.swift */,
 				5BE858F3204A93E80059C20C /* RDImagesPaginationVC.swift */,
 			);
 			name = "recipe details";
@@ -380,7 +380,7 @@
 				5BE85901204AAE440059C20C /* RDRecipesTableView.swift in Sources */,
 				5BE858ED204A93040059C20C /* RDRecipesListVC.swift in Sources */,
 				5B125947204ADE120009C804 /* RDRecipe.swift in Sources */,
-				5BE858E9204A92E40059C20C /* RDRecipeDetails.swift in Sources */,
+				5BE858E9204A92E40059C20C /* RDRecipeDetailsVC.swift in Sources */,
 				5BE858FF204AAE190059C20C /* RDRecipesTablePR.swift in Sources */,
 				5B12594F204B28D40009C804 /* RDAsyncImageView.swift in Sources */,
 				5B12594D204AEFF60009C804 /* RDRecipesFetcher.swift in Sources */,
